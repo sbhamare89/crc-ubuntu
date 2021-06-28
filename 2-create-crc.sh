@@ -1,3 +1,9 @@
+First check wheather your VM have nested virtualization enabled.
+
+grep -cw vmx /proc/cpuinfo
+=> it must return non-zero value
+
+
 sudo apt-get update
 sudo apt-get install --assume-yes qemu-kvm libvirt-daemon libvirt-daemon-system dnsmasq
 
@@ -40,6 +46,12 @@ crc config set skip-check-network-manager-installed true
 crc config set skip-check-network-manager-config true
 crc config set skip-check-network-manager-running true
 crc config set skip-check-crc-dnsmasq-file true
+
+crc delete
+crc cleanup
+rm -rf ~/.crc
+crc config set network-mode user
+
 
 crc setup
 # Download crc pull secret from https://cloud.redhat.com/openshift/install/crc/installer-provisioned and keep it in ~/.crc-pull-secret
