@@ -40,23 +40,25 @@ sudo systemctl restart dnsmasq
 dig foo.apps-crc.testing | echo $(grep 192.168.130.11)
 dig api.crc.testing | echo $(grep 192.168.130.11)
 
-curl -LO https://mirror.openshift.com/pub/openshift-v4/clients/crc/latest/crc-linux-amd64.tar.xz && tar -Jxvf crc-linux-amd64.tar.xz && mkdir -p ~/bin && export PATH=$PATH:~/bin && mv crc-linux*/crc ~/bin/ && rm -rf crc*
+curl -LO https://mirror.openshift.com/pub/openshift-v4/clients/crc/1.9.0/crc-linux-amd64.tar.xz && tar -Jxvf crc-linux-amd64.tar.xz && mkdir -p ~/bin && export PATH=$PATH:~/bin && mv crc-linux*/crc ~/bin/ && rm -rf crc*
+#curl -LO https://mirror.openshift.com/pub/openshift-v4/clients/crc/latest/crc-linux-amd64.tar.xz && tar -Jxvf crc-linux-amd64.tar.xz && mkdir -p ~/bin && export PATH=$PATH:~/bin && mv crc-linux*/crc ~/bin/ && rm -rf crc*
 
 crc config set skip-check-network-manager-installed true
 crc config set skip-check-network-manager-config true
 crc config set skip-check-network-manager-running true
 crc config set skip-check-crc-dnsmasq-file true
 
-crc delete
-crc cleanup
-rm -rf ~/.crc
-crc config set network-mode user
+#crc delete
+#crc cleanup
+#rm -rf ~/.crc
+#crc config set network-mode user
 
 
 crc setup
-crc daemon
+#crc daemon
 # Download crc pull secret from https://cloud.redhat.com/openshift/install/crc/installer-provisioned and keep it in ~/.crc-pull-secret
-nohup crc start -m 20480 -p ~/crc-pull-secret.txt &
+#nohup crc start -m 20480 -p ~/crc-pull-secret.txt &
+nohup crc start -p ~/crc-pull-secret.txt &
 
 
 References: 
