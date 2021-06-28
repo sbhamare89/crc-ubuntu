@@ -56,7 +56,7 @@ crc config set network-mode user
 crc setup
 crc daemon
 # Download crc pull secret from https://cloud.redhat.com/openshift/install/crc/installer-provisioned and keep it in ~/.crc-pull-secret
-nohup crc start -m 20480 -p ~/.crc-pull-secret &
+nohup crc start -m 20480 -p ~/crc-pull-secret.txt &
 
 
 References: 
