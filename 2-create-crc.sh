@@ -64,6 +64,10 @@ crc setup
 #nohup crc start -m 20480 -p ~/crc-pull-secret.txt &
 nohup crc start -p ~/crc-pull-secret.txt &
 
+Download OC binary
+
+https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz
+
 
 References: 
 ===========
